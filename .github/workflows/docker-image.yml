@@ -22,13 +22,13 @@ jobs:
     - name: Build and Push html-frontend
       uses: docker/build-push-action@v5.3.0
       with:
-        context: ./nginx-frontend
+        context: ./frontend
         push: true
-        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/html-frontend:latest
+        tags: ${{ secrets.DOCKER_HUB_USERNAME }}/nginx-frontend:latest
 
     - name: Build and Push flask-backend
       uses: docker/build-push-action@v5.3.0
       with:
-        context: ./flask-backend
+        context: ./backend
         push: true
         tags: ${{ secrets.DOCKER_HUB_USERNAME }}/flask-backend:latest

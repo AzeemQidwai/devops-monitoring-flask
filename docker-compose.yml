@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    image: flask-backend
+    image: azeemahmed144/flask-backend:latest
     build: ./backend
     environment:
       - DB_USERNAME=your_db_username
@@ -16,7 +16,7 @@ services:
         constraints: [node.hostname == <BACKEND-WORKER-NODE-HOSTNAME>]
 
   frontend:
-    image: nginx-frontend
+    image: azeemahmed144/nginx-frontend:latest
     build: ./frontend
     ports:
       - "80:80"

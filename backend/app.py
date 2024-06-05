@@ -5,10 +5,10 @@ import os
 app = Flask(__name__)
 
 # Configuration
-DB_USERNAME = 'your_db_username'
-DB_PASSWORD = 'your_db_password'
-DB_HOST = 'your_rds_endpoint'
-DB_NAME = 'your_db_name'
+DB_USERNAME = os.environ.get('DB_USERNAME', 'default_username')
+DB_PASSWORD = os.environ.get('DB_PASSWORD', 'default_password')
+DB_HOST = os.environ.get('DB_HOST', 'default_host')
+DB_NAME = os.environ.get('DB_NAME', 'default_dbname')
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{DB_USERNAME}:{DB_PASSWORD}@{DB_HOST}/{DB_NAME}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
